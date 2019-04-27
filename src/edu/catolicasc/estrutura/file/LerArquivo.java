@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -24,6 +25,11 @@ public class LerArquivo {
 		LOG.info("Quantidade de bytes na linha -> "+ b.length);
 		while (linha != null) {
 			linha = lerArq.readLine();
+			if (linha != null){
+				NaiveSearch naiveSearch = new NaiveSearch(linha, palavra);
+				naiveSearch.search();
+			}
+
 		}
 		read.close();
 

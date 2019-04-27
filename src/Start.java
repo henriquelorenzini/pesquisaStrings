@@ -9,7 +9,7 @@ import edu.catolicasc.estrutura.file.LerArquivo;
  */
 public class Start {
 
-	private static final String[] ARQUIVO = new String[25];
+	private static final String[] ARQUIVO = new String[42];
 	
 	
 	private static final Logger LOG = Logger.getLogger(Start.class.getCanonicalName());
@@ -33,7 +33,7 @@ public class Start {
 	static void readAll() throws IOException {
 	
 		ARQUIVO[0] = "resource/FolgerDigitalTexts_TXT_Complete/1H4.txt";
-		ARQUIVO[1] = "resource/FolgerDigitalTexts_TXT_Complete/H6.txt";
+		ARQUIVO[1] = "resource/FolgerDigitalTexts_TXT_Complete/1H6.txt";
 		ARQUIVO[2] = "resource/FolgerDigitalTexts_TXT_Complete/2H4.txt";
 		ARQUIVO[3] = "resource/FolgerDigitalTexts_TXT_Complete/2H6.txt";
 		ARQUIVO[4] = "resource/FolgerDigitalTexts_TXT_Complete/3H6.txt";
@@ -89,6 +89,7 @@ public class Start {
 	static void procurar(String arquivo,String palavra) throws IOException {
 		LOG.info("started");
 		LerArquivo leitor = new LerArquivo();
+		leitor.reader(arquivo, palavra);
 		LOG.info("finished");
 	}
 }
