@@ -1,4 +1,9 @@
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.logging.Logger;
 
 import edu.catolicasc.estrutura.file.LerArquivo;
@@ -10,8 +15,7 @@ import edu.catolicasc.estrutura.file.LerArquivo;
 public class Start {
 
 	private static final String[] ARQUIVO = new String[42];
-	
-	
+
 	private static final Logger LOG = Logger.getLogger(Start.class.getCanonicalName());
 	
 	/**
@@ -74,17 +78,25 @@ public class Start {
 		ARQUIVO[39] = "resource/FolgerDigitalTexts_TXT_Complete/Ven.txt";
 		ARQUIVO[40] = "resource/FolgerDigitalTexts_TXT_Complete/Wiv.txt";
 		ARQUIVO[41] = "resource/FolgerDigitalTexts_TXT_Complete/WT.txt";
-		
 
+		DateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH:mm");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+		long initTime = System.currentTimeMillis();
+		Date dateInit = new Date(initTime);
+		System.out.println("Inital time: "+ dateFormat.format(dateInit));
 		String palavra = "earth";
 		for (String arquivo : ARQUIVO) {
 			procurar(arquivo,palavra);
 		}
+		long endTime = System.currentTimeMillis();
+		Date dateEnd = new Date(endTime);
+		System.out.println("End time: " + dateFormat.format(dateEnd));
+		System.out.println("Total time (in miliseconds): " + (endTime - initTime));
 	}
 
 	/**
 	 * Chama o método de leitura de cada arquivo
-	 * @param io
 	 */
 	static void procurar(String arquivo,String palavra) throws IOException {
 		LOG.info("started");

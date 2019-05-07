@@ -26,8 +26,13 @@ public class LerArquivo {
 		while (linha != null) {
 			linha = lerArq.readLine();
 			if (linha != null){
-				NaiveSearch naiveSearch = new NaiveSearch(linha, palavra);
-				naiveSearch.search();
+//				NaiveSearch naiveSearch = new NaiveSearch(linha, palavra);
+//				naiveSearch.search();
+//				RabinKarp rabinKarp = new RabinKarp(linha, palavra);
+//				ArrayList<Integer> results = rabinKarp.search();
+//				if (!results.isEmpty())
+//					results.forEach( result -> System.out.println(result));
+				KMP kmp = new KMP(linha, palavra);
 			}
 
 		}
